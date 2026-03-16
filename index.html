@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Виктория Тихова — Психолог</title>
+  <meta name="description" content="Практикующий психолог Виктория Тихова. КПТ, арт-терапия, трансовые техники, метафорические карты. Бережный подход, 4+ года практики. Онлайн-консультации.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #f7f3ee;
+      --warm: #ede7de;
+      --sage: #8a9e8c;
+      --sage-light: #b8c9b9;
+      --rose: #c27a6a;
+      --rose-hover: #b06858;
+      --rose-light: #e8cfc4;
+      --text: #2d2a27;
+      --text-muted: #7a756e;
+      --border: #ddd5c8;
+
+      /* Fluid spacing */
+      --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+      --space-sm: clamp(0.75rem, 1.5vw, 1.25rem);
+      --space-md: clamp(1.25rem, 3vw, 2.5rem);
+      --space-lg: clamp(2.5rem, 6vw, 5rem);
+      --space-xl: clamp(3.5rem, 8vw, 6.25rem);
+      --space-section: clamp(3rem, 7vw, 6.25rem);
+
+      /* Fluid typography */
+      --text-body: clamp(0.9375rem, 0.3vw + 0.875rem, 1.0625rem);
+      --text-small: clamp(0.8125rem, 0.2vw + 0.75rem, 0.9375rem);
+      --text-xs: clamp(0.6875rem, 0.15vw + 0.65rem, 0.75rem);
+      --text-h1: clamp(2.75rem, 5vw + 1rem, 5rem);
+      --text-h2: clamp(2rem, 3vw + 0.75rem, 3.25rem);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-weight: 300;
+      font-size: var(--text-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+
+    /* ============ NAV ============ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      height: 64px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(247,243,238,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+      font-weight: 500; letter-spacing: 0.5px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: clamp(1rem, 2vw, 1.75rem); }
+    .nav-link {
+      font-size: var(--text-xs); color: var(--text-muted); text-decoration: none;
+      letter-spacing: 1px; transition: color 0.2s;
+      padding: 8px 0; /* touch target height */
+    }
+    .nav-link:hover { color: var(--text); }
+    .nav-cta {
+      font-size: var(--text-xs); font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--rose);
+      text-decoration: none; border-bottom: 1px solid var(--rose);
+      padding: 8px 0; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.7; }
+
+    /* Mobile hamburger */
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 44px; height: 44px;
+      flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      transition: all 0.3s;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(2.5px, 2.5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(2.5px, -2.5px); }
+
+    /* ============ HERO ============ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 0;
+      padding-top: 64px;
+    }
+    .hero-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: var(--space-xl) clamp(2rem, 5vw, 5rem);
+      animation: fadeUp 1s ease both;
+    }
+    .hero-tag {
+      font-size: var(--text-xs); letter-spacing: 3px; text-transform: uppercase;
+      color: var(--sage); margin-bottom: var(--space-md);
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--text-h1);
+      font-weight: 300; line-height: 1.05;
+      letter-spacing: -1px; margin-bottom: var(--space-sm);
+    }
+    .hero-name em { font-style: italic; color: var(--rose); }
+    .hero-subtitle {
+      font-size: var(--text-body); line-height: 1.8; color: var(--text-muted);
+      max-width: 26rem; margin-bottom: var(--space-lg);
+    }
+    .hero-specialties {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--space-lg);
+    }
+    .specialty-tag {
+      font-size: var(--text-xs); letter-spacing: 1px; padding: 6px 16px;
+      border: 1px solid var(--border); border-radius: 100px;
+      color: var(--text-muted);
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--rose); color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: var(--text-xs); font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none;
+      padding: 18px 44px; min-height: 48px;
+      border-radius: 100px; border: none; cursor: pointer;
+      transition: all 0.3s; align-self: flex-start;
+    }
+    .btn-primary:hover { background: var(--rose-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(194,122,106,0.35); }
+
+    /* Hero image - fixed aspect ratio so crop never changes on resize */
+    .hero-visual {
+      position: relative; overflow: hidden;
+      animation: fadeIn 1.2s ease both 0.3s;
+      border-radius: 24px;
+      margin: clamp(0.5rem, 1.5vw, 1.5rem);
+      margin-left: 0;
+      aspect-ratio: 3 / 4;
+    }
+    .hero-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 38% 25%;
+    }
+    .hero-stat {
+      position: absolute; top: clamp(1.5rem, 4vw, 3rem); right: clamp(1.5rem, 4vw, 3rem);
+      background: rgba(247,243,238,0.92); backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 20px 28px; border-radius: 12px; border: 1px solid var(--border);
+    }
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px; font-weight: 300; color: var(--rose); line-height: 1;
+    }
+    .hero-stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 1px; margin-top: 4px; }
+
+    /* ============ SECTIONS ============ */
+    section { padding: var(--space-section) clamp(1.25rem, 5vw, 5rem); }
+    .section-label {
+      font-size: var(--text-xs); letter-spacing: 3px; text-transform: uppercase;
+      color: var(--sage); margin-bottom: var(--space-sm);
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--text-h2);
+      font-weight: 300; line-height: 1.15;
+      letter-spacing: -0.5px; margin-bottom: var(--space-md);
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+    .section-desc {
+      font-size: var(--text-body); line-height: 1.8; color: var(--text-muted); max-width: 36rem;
+    }
+
+    /* ============ APPROACH ============ */
+    .approach { background: var(--warm); }
+    .approach-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl); align-items: start; margin-top: var(--space-lg);
+    }
+    .approach-text p {
+      font-size: var(--text-body); line-height: 1.9; color: var(--text-muted);
+      margin-bottom: var(--space-sm);
+    }
+    .methods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .method-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: 12px; padding: clamp(1.25rem, 2vw, 1.5rem);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .method-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+    .method-icon { font-size: 24px; margin-bottom: 12px; }
+    .method-name { font-family: 'Cormorant Garamond', serif; font-size: 1.125rem; font-weight: 500; margin-bottom: 8px; }
+    .method-desc { font-size: var(--text-small); color: var(--text-muted); line-height: 1.7; }
+
+    /* ============ TOPICS ============ */
+    .topics-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1rem, 2vw, 1.5rem); margin-top: var(--space-lg);
+    }
+    .topic-card {
+      padding: clamp(1.5rem, 3vw, 2.25rem); border: 1px solid var(--border);
+      border-radius: 16px; transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .topic-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--rose-light), var(--sage-light));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .topic-card:hover::before { transform: scaleX(1); }
+    .topic-card:hover { border-color: transparent; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .topic-emoji { font-size: 28px; margin-bottom: var(--space-sm); }
+    .topic-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 1.5vw, 1.375rem); font-weight: 500; margin-bottom: 12px; }
+    .topic-desc { font-size: var(--text-small); color: var(--text-muted); line-height: 1.75; }
+
+    /* ============ ABOUT ============ */
+    .about { background: var(--warm); }
+    .about-content { max-width: 52rem; }
+    .about-content .section-desc { margin-bottom: var(--space-md); }
+    .credentials-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: var(--space-md);
+    }
+    .credential {
+      background: var(--cream); border: 1px solid var(--border); border-radius: 12px;
+      padding: clamp(0.875rem, 1.5vw, 1rem); display: flex; gap: 12px; align-items: flex-start;
+    }
+    .credential-num {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2vw, 1.75rem);
+      font-weight: 300; color: var(--rose); line-height: 1; flex-shrink: 0;
+    }
+    .credential-text { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+    .values-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-md); }
+    .values-list li { display: flex; gap: 16px; align-items: flex-start; font-size: var(--text-small); line-height: 1.7; color: var(--text-muted); }
+    .value-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); flex-shrink: 0; margin-top: 8px; }
+    .value-strong { color: var(--text); font-weight: 400; }
+
+    /* ============ PRICING ============ */
+    .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.25rem); margin-top: var(--space-lg); }
+    .price-card {
+      padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.25rem, 2vw, 1.75rem);
+      border: 1px solid var(--border);
+      border-radius: 16px; transition: all 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .price-card.featured { background: var(--text); color: #fff; border-color: var(--text); }
+    .price-card:not(.featured):hover { border-color: var(--rose-light); box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-4px); }
+    .price-label { font-size: var(--text-xs); letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-sm); }
+    .price-card.featured .price-label { color: rgba(255,255,255,0.5); }
+    .price-amount { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.75rem); font-weight: 300; line-height: 1; margin-bottom: 4px; }
+    .price-currency { font-size: 0.5em; }
+    .price-per-session { font-size: var(--text-small); color: var(--sage); font-weight: 400; margin-bottom: 4px; }
+    .price-card.featured .price-per-session { color: var(--sage-light); }
+    .price-duration { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: var(--space-md); }
+    .price-card.featured .price-duration { color: rgba(255,255,255,0.5); }
+    .price-divider { height: 1px; background: var(--border); margin-bottom: var(--space-sm); }
+    .price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
+    .price-desc { font-size: var(--text-small); line-height: 1.7; color: var(--text-muted); flex: 1; }
+    .price-card.featured .price-desc { color: rgba(255,255,255,0.7); }
+    .price-savings { display: inline-block; margin-top: 12px; font-size: var(--text-xs); letter-spacing: 1px; color: var(--sage); background: rgba(138,158,140,0.1); padding: 4px 12px; border-radius: 100px; font-weight: 500; }
+    .price-card.featured .price-savings { color: var(--sage-light); background: rgba(138,158,140,0.2); }
+
+    /* ============ FIRST SESSION ============ */
+    .first-session { background: var(--warm); }
+    .session-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: var(--space-lg); }
+    .step { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 4vw, 4rem); font-weight: 300; line-height: 1; color: var(--border); }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 1.5vw, 1.375rem); font-weight: 500; }
+    .step-desc { font-size: var(--text-small); color: var(--text-muted); line-height: 1.8; }
+
+    /* ============ REVIEWS CAROUSEL ============ */
+    .reviews-section { background: var(--warm); }
+    .carousel-wrapper { position: relative; margin-top: var(--space-lg); overflow: hidden; }
+    .carousel-track {
+      display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+    }
+    .carousel-slide {
+      flex: 0 0 calc(100% / 3); padding: 0 12px; box-sizing: border-box;
+    }
+    .review-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: 16px; padding: clamp(1.5rem, 2.5vw, 2rem); height: 100%;
+      display: flex; flex-direction: column; gap: var(--space-sm);
+    }
+    .review-quote {
+      font-size: 2rem; color: var(--rose);
+      font-family: 'Cormorant Garamond', serif; line-height: 1;
+    }
+    .review-text { font-size: var(--text-small); line-height: 1.8; color: var(--text-muted); flex: 1; }
+    .review-author {
+      font-size: var(--text-xs); color: var(--text); letter-spacing: 1px;
+      border-top: 1px solid var(--border); padding-top: var(--space-sm); font-weight: 400;
+    }
+    .review-context { font-size: var(--text-xs); color: var(--text-muted); font-weight: 300; margin-top: 2px; }
+    .carousel-controls {
+      display: flex; align-items: center; justify-content: center;
+      gap: var(--space-md); margin-top: var(--space-md);
+    }
+    .carousel-btn {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--cream);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; color: var(--text-muted); font-size: 18px;
+    }
+    .carousel-btn:hover { border-color: var(--rose); color: var(--rose); }
+    .carousel-dots { display: flex; gap: 8px; align-items: center; }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); border: none; cursor: pointer;
+      transition: all 0.3s; padding: 0;
+    }
+    .carousel-dot.active { background: var(--rose); width: 24px; border-radius: 4px; }
+
+    /* ============ CTA ============ */
+    .cta-section { text-align: center; padding: var(--space-xl) clamp(1.25rem, 5vw, 5rem); background: var(--text); color: #fff; }
+    .cta-section .section-label { color: var(--rose-light); }
+    .cta-section .section-title { color: #fff; }
+    .cta-section .section-title em { color: var(--rose-light); }
+    .cta-section .section-desc { color: rgba(255,255,255,0.5); margin: 0 auto var(--space-lg); }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.3); color: #fff;
+      font-family: 'Jost', sans-serif; font-size: var(--text-xs); font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none;
+      padding: 18px 44px; min-height: 48px; border-radius: 100px; transition: all 0.3s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .cta-contacts {
+      margin-top: var(--space-lg); padding-top: var(--space-md);
+      border-top: 1px solid rgba(255,255,255,0.1); font-size: var(--text-small); color: rgba(255,255,255,0.4);
+    }
+    .cta-contacts a {
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      font-size: var(--text-small); letter-spacing: 1px; transition: color 0.2s;
+      padding: 8px 0;
+    }
+    .cta-contacts a:hover { color: rgba(255,255,255,0.9); }
+
+    /* ============ FOOTER ============ */
+    footer {
+      padding: var(--space-md) clamp(1.25rem, 5vw, 5rem);
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border); font-size: var(--text-xs); color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; font-size: var(--text-xs); padding: 8px 0; }
+
+    /* ============ ANIMATIONS ============ */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============ RESPONSIVE — TABLET ============ */
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ============ RESPONSIVE — MOBILE ============ */
+    @media (max-width: 768px) {
+      nav { height: 56px; }
+      .nav-link { display: none; }
+      .nav-toggle { display: flex; }
+
+      /* Mobile menu overlay */
+      .nav-links.open {
+        position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+        background: rgba(247,243,238,0.98);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        flex-direction: column; align-items: center; justify-content: center;
+        gap: 0; z-index: 99;
+      }
+      .nav-links.open .nav-link {
+        display: block; font-size: 1.125rem; letter-spacing: 2px;
+        padding: 16px 0; /* Large touch targets */
+      }
+      .nav-links.open .nav-cta {
+        font-size: 1rem; margin-top: 16px; padding: 16px 0;
+      }
+
+      /* Hero: stack vertically, show photo */
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-text {
+        padding: var(--space-lg) var(--space-md) var(--space-md);
+        order: 1;
+      }
+      .hero-visual {
+        order: 2;
+        aspect-ratio: 4 / 3;
+        margin: 0;
+        border-radius: 0;
+      }
+      .hero-stat { top: 16px; right: 16px; padding: 14px 20px; }
+      .hero-stat-num { font-size: 32px; }
+
+      .approach-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .methods-grid { grid-template-columns: 1fr 1fr; }
+      .topics-grid { grid-template-columns: 1fr; }
+      .credentials-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .session-steps { grid-template-columns: 1fr; }
+      .carousel-slide { flex: 0 0 100% !important; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .methods-grid { grid-template-columns: 1fr; }
+      .credentials-grid { grid-template-columns: 1fr; }
+      .hero-specialties { gap: 6px; }
+      .specialty-tag { font-size: 0.625rem; padding: 5px 12px; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-outline { width: 100%; max-width: 320px; text-align: center; }
+    }
+
+    /* Short viewports (landscape phones) */
+    @media (max-height: 500px) {
+      .hero-visual { aspect-ratio: 1 / 1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Виктория Тихова</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#approach" class="nav-link">Подход</a>
+    <a href="#topics" class="nav-link">Темы</a>
+    <a href="#about" class="nav-link">Обо мне</a>
+    <a href="#pricing" class="nav-link">Стоимость</a>
+    <a href="#reviews" class="nav-link">Отзывы</a>
+    <a href="https://t.me/TihaVikova_psy" target="_blank" class="nav-cta">Записаться</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Психолог · Терапевт</div>
+    <h1 class="hero-name">Виктория<br><em>Тихова</em></h1>
+    <p class="hero-subtitle">Практический психолог, когнитивно-поведенческий терапевт, арт-терапевт, специалист по трансовой терапии.</p>
+    <div class="hero-specialties">
+      <span class="specialty-tag">КПТ</span>
+      <span class="specialty-tag">Арт-терапия</span>
+      <span class="specialty-tag">Трансовые техники</span>
+      <span class="specialty-tag">МАК</span>
+    </div>
+    <a href="https://t.me/TihaVikova_psy" target="_blank" class="btn-primary">Записаться на консультацию</a>
+  </div>
+  <div class="hero-visual">
+    <img src="photo.jpg" alt="Виктория Тихова — психолог" width="800" height="1067" fetchpriority="high">
+    <div class="hero-stat">
+      <div class="hero-stat-num">4+</div>
+      <div class="hero-stat-label">года практики</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="section-label">Мой подход</div>
+  <h2 class="section-title reveal">Я не подгоняю вас под схему,<br><em>а ищу ключик к вашей ситуации</em></h2>
+  <div class="approach-grid reveal">
+    <div class="approach-text">
+      <p>Работаю в интегративном подходе, сочетая чёткие техники КПТ с мягкостью арт-терапии и глубиной трансовых методов. Под каждого клиента подбираю уникальный набор техник — шаблоны не использую.</p>
+      <p>Мне особенно близко направление когнитивно-поведенческой арт-терапии — новое направление, где логика встречается с творчеством. Это позволяет работать одновременно с мыслями, чувствами и образами.</p>
+      <p>Мой стиль называют тёплым и бережным, а подход — нестандартным. Я создаю пространство, в котором вы сможете найти свой путь к лучшей версии себя.</p>
+    </div>
+    <div class="methods-grid">
+      <div class="method-card">
+        <div class="method-icon">🧠</div>
+        <div class="method-name">КПТ</div>
+        <div class="method-desc">Выявляем глубинные убеждения и паттерны, сформированные с детства. Учимся осознавать, что помогает, а что разрушает — и менять разрушительное на созидательное.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">🎨</div>
+        <div class="method-name">Арт-терапия</div>
+        <div class="method-desc">Там, где слов недостаточно — подключаем творчество. Метод затрагивает глубинные слои психики и делает видимым то, что не давалось словами.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">🌊</div>
+        <div class="method-name">Трансовые техники</div>
+        <div class="method-desc">Напрямую работаем с бессознательным. Психика становится пластичнее — это позволяет мягко проработать детские травмы и внутренние конфликты. Порой достаточно одного сеанса.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">🃏</div>
+        <div class="method-name">МАК</div>
+        <div class="method-desc">Метафорические карты становятся посредником между вами и бессознательным. Через ассоциации и образы помогают найти ответы на волнующие вопросы.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section id="topics">
+  <div class="section-label">С чем я работаю</div>
+  <h2 class="section-title reveal">Темы, с которыми<br><em>вам ко мне</em></h2>
+  <div class="topics-grid reveal">
+    <div class="topic-card">
+      <div class="topic-emoji">💙</div>
+      <div class="topic-name">Тревога и выгорание</div>
+      <div class="topic-desc">Стойкая неуверенность, прокрастинация, перфекционизм, которые мешают жить и работать. Когда хочется общаться — но сил хватает только на изоляцию.</div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-emoji">🔑</div>
+      <div class="topic-name">Потеря себя</div>
+      <div class="topic-desc">«Хочу начать хотеть» — один из самых глубоких запросов. Находим путь к собственным желаниям, пробуждаем мечты, и уже из этого строим цели.</div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-emoji">🤝</div>
+      <div class="topic-name">Самооценка и самокритика</div>
+      <div class="topic-desc">Когда кажется, что «у других проблемы серьёзнее». Учимся не обесценивать свои достижения — у каждого свой путь, и ваша боль настоящая.</div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-emoji">🌱</div>
+      <div class="topic-name">Кризисные ситуации</div>
+      <div class="topic-desc">Утрата, развод, потеря работы, тяжёлая болезнь. Кризис середины жизни или кризис 30-летних. Исследуем, кем вы были до и кем становитесь после.</div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-emoji">🩺</div>
+      <div class="topic-name">Онкология и тяжёлые диагнозы</div>
+      <div class="topic-desc">Поддержка для тех, кто столкнулся с серьёзным диагнозом или для их близких. Помогаю прожить каждый этап максимально экологично и найти опору.</div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-emoji">✨</div>
+      <div class="topic-name">Ценности и идентичность</div>
+      <div class="topic-desc">Когда привыкли жить по чужим правилам и не знаете, чего хотите сами. Работа с ценностями, поиск себя, восстановление контакта с собой.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">Обо мне</div>
+  <h2 class="section-title reveal">Проводник<br><em>в мир ваших эмоций</em></h2>
+  <div class="about-content reveal">
+    <p class="section-desc">Для меня психология — не просто профессия, а любимое дело и образ жизни. Я искренне верю, что каждый человек — творец, и моя задача — помочь вам вспомнить об этом.</p>
+    <p class="section-desc" style="margin-top:var(--space-sm);">Мой путь был непрямым: от химика и преподавателя, руководителя отдела кадров, где на практике училась понимать людей, — до глубокой частной практики. Этот разнообразный опыт помогает мне видеть каждого клиента объёмно.</p>
+
+    <div class="credentials-grid" style="margin-top:var(--space-lg);">
+      <div class="credential">
+        <div class="credential-num">1300+</div>
+        <div class="credential-text">часов профессиональной переподготовки по практической психологии</div>
+      </div>
+      <div class="credential">
+        <div class="credential-num">750</div>
+        <div class="credential-text">часов обучения когнитивно-поведенческой терапии</div>
+      </div>
+      <div class="credential">
+        <div class="credential-num">500</div>
+        <div class="credential-text">часов специализации по арт-терапии</div>
+      </div>
+      <div class="credential">
+        <div class="credential-num">4+</div>
+        <div class="credential-text">года частной практики с клиентами</div>
+      </div>
+    </div>
+
+    <ul class="values-list">
+      <li><div class="value-dot"></div><div><span class="value-strong">Диплом практического психолога</span> — Балтийский институт психологии (2013)</div></li>
+      <li><div class="value-dot"></div><div><span class="value-strong">Курс АМТТ</span> у Роберта Миллера, трансовые техники школы «Ремонт подсознания»</div></li>
+      <li><div class="value-dot"></div><div><span class="value-strong">Личная терапия и супервизии</span> — мой профессиональный стандарт и залог вашей безопасности</div></li>
+      <li><div class="value-dot"></div><div><span class="value-strong">Горячая линия и благотворительность</span> — опыт работы с кризисными ситуациями</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-label">Стоимость</div>
+  <h2 class="section-title reveal">Выберите удобный<br><em>формат работы</em></h2>
+  <p class="section-desc reveal">Терапия — это инвестиция в себя, в своё благополучие и качество жизни</p>
+  <div class="pricing-grid reveal">
+    <div class="price-card">
+      <div class="price-label">Разовая сессия</div>
+      <div class="price-amount"><span class="price-currency">₽</span>3 800</div>
+      <div class="price-duration">60 минут</div>
+      <div class="price-divider"></div>
+      <div class="price-desc">Одна встреча. Подходит для разовой консультации или знакомства с форматом</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Полуторачасовая</div>
+      <div class="price-amount"><span class="price-currency">₽</span>5 500</div>
+      <div class="price-duration">90 минут</div>
+      <div class="price-divider"></div>
+      <div class="price-desc">Больше времени для глубокой работы. Рекомендуется для первой встречи</div>
+    </div>
+    <div class="price-card featured">
+      <div class="price-label">Пакет 5 сессий</div>
+      <div class="price-amount"><span class="price-currency">₽</span>17 000</div>
+      <div class="price-per-session">3 400 ₽ за сессию</div>
+      <div class="price-duration">5 × 60 минут</div>
+      <div class="price-divider"></div>
+      <div class="price-desc">Оптимальный вариант для краткосрочной работы с конкретным запросом</div>
+      <span class="price-savings">скидка 11%</span>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Пакет 10 сессий</div>
+      <div class="price-amount"><span class="price-currency">₽</span>30 000</div>
+      <div class="price-per-session">3 000 ₽ за сессию</div>
+      <div class="price-duration">10 × 60 минут</div>
+      <div class="price-divider"></div>
+      <div class="price-desc">Идеально для глубокой работы и устойчивых изменений</div>
+      <span class="price-savings">скидка 21%</span>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST SESSION -->
+<section class="first-session">
+  <div class="section-label">Первый шаг</div>
+  <h2 class="section-title reveal">Как проходит<br><em>первая сессия</em></h2>
+  <div class="session-steps reveal">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Знакомство без спешки</div>
+      <div class="step-desc">Первая встреча по желанию может быть длиннее на 20–30 минут. Это позволяет познакомиться в комфортном темпе и уделить достаточно времени вашему запросу</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Краткий опросник</div>
+      <div class="step-desc">После первого контакта я пришлю вам короткую анкету. Не на все вопросы нужно отвечать — если что-то вызывает сопротивление, просто пропустите</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Определяем, подходим ли мы друг другу</div>
+      <div class="step-desc">Обсудим ваш запрос, я расскажу, как мы можем работать. Терапия работает только тогда, когда есть доверие и контакт</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="section-label">Отзывы</div>
+  <h2 class="section-title reveal">Что говорят<br><em>клиенты</em></h2>
+  <div class="carousel-wrapper reveal">
+    <div class="carousel-track" id="reviewsTrack">
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">Я обратилась в состоянии полной безысходности и выгорания — не было сил что-то делать. Мы работали мягко, с принятием себя. Через 3 месяца я почувствовала, что вновь радуюсь жизни, солнцу и пению птиц. Теперь я снова чувствую себя живой.</div>
+          <div>
+            <div class="review-author">Анонимно</div>
+            <div class="review-context">Выгорание, потеря себя</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">С Викторией очень спокойно, бережно и надёжно. Благодаря ей я стала увереннее, появилось чувство опоры внутри, стала легко выдерживать хейт и меньше опираться на чужое мнение. Владеет большим количеством техник и предлагает на выбор.</div>
+          <div>
+            <div class="review-author">Анастасия Лозинская</div>
+            <div class="review-context">Самооценка, уверенность</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">Всего за несколько сеансов жизнь разделилась на «до» и «после». Переосмыслила много вещей и справилась с внутренними проблемами. Каждый сеанс — что-то новое: новые практики и инструменты. Психолог направляла в правильное русло.</div>
+          <div>
+            <div class="review-author">Лариса Демина</div>
+            <div class="review-context">Внутренние конфликты</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">Виктория мне подошла тем, что смогла выдержать мой словесный «натиск» и яркую эмоциональность. Краткими, но точными вопросами попадала в суть. По итогу работы я вышла на новый уровень жизни, поменяла мышление.</div>
+          <div>
+            <div class="review-author">Захарова Ольга</div>
+            <div class="review-context">Глубинная работа, МАК</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">Дочка стала намного увереннее, рассудительнее. Раньше об институте и слышать не хотела, а сейчас ставит цели и идёт к ним. Страх и мнительность отступают. Очень благодарна Виктории, что нашла подход к моей дочери.</div>
+          <div>
+            <div class="review-author">Полина Балакирева</div>
+            <div class="review-context">Мама о работе с дочерью</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">Установили коннект с первых минут — ощущение, что мы на одной волне. Проработали за 10 сессий два страха — один ушёл сразу после первой. После каждой встречи всё раскладывалось по полочкам.</div>
+          <div>
+            <div class="review-author">Анастасия</div>
+            <div class="review-context">Страхи, самопознание</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">Я сама практикующий психолог, поэтому для меня было важно обратиться к специалисту с большим опытом. Виктория — специалист высокого класса. Особенно хочу отметить умение слушать, эмпатию, внимание к мелочам.</div>
+          <div>
+            <div class="review-author">Любовь</div>
+            <div class="review-context">Психолог о психологе</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">Каждая сессия совершенно новая. Глубочайшая работа с метафорическими картами — увидела свою жизнь со стороны, её масштаб. Остановилась после долгой «погони». И всё меняется — но так спокойно, с тишиной внутри.</div>
+          <div>
+            <div class="review-author">Надежда Соколова</div>
+            <div class="review-context">Поиск себя, МАК</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <div class="review-text">Проработали и самозванца, и синдром отличницы, и заблокированные эмоции. Виктория помогла посмотреть на многие вещи с другой стороны. Постоянно ощущалась эмпатия и вовлечённость.</div>
+          <div>
+            <div class="review-author">Антипова Оксана</div>
+            <div class="review-context">Синдром самозванца, эмоции</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Предыдущий">&#8592;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" id="nextBtn" aria-label="Следующий">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-label">Начать</div>
+  <h2 class="section-title">Помогу найти опору<br><em>внутри себя</em></h2>
+  <p class="section-desc">Каждый человек уникален. Путь к изменениям у каждого свой —<br>давайте знакомиться и вместе создавать пространство для ваших перемен</p>
+  <div class="cta-buttons">
+    <a href="https://t.me/TihaVikova_psy" target="_blank" class="btn-primary">Написать в Telegram</a>
+    <a href="tel:+79165973560" class="btn-outline">Позвонить</a>
+  </div>
+  <div class="cta-contacts">
+    <div style="display:flex; gap:32px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://t.me/TihaVikova_psy" target="_blank">Telegram: @TihaVikova_psy</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© Виктория Тихова, 2026</span>
+  <div style="display:flex; gap:24px;">
+    <a href="https://t.me/TihaVikova_psy" target="_blank">Telegram</a>
+    <a href="tel:+79165973560">+7 916 597 35 60</a>
+  </div>
+  <span>Психолог · Терапевт</span>
+</footer>
+
+<script>
+  // Reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Mobile menu
+  (function() {
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      links.classList.toggle('open');
+      document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+    });
+    // Close on link click
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        links.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+
+  // Reviews carousel
+  (function() {
+    const track = document.getElementById('reviewsTrack');
+    const slides = track.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+    let perView = 3;
+
+    function getPerView() {
+      if (window.innerWidth <= 768) return 1;
+      if (window.innerWidth <= 1024) return 2;
+      return 3;
+    }
+
+    function getTotalPages() {
+      return Math.ceil(slides.length / perView);
+    }
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      const pages = getTotalPages();
+      for (let i = 0; i < pages; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+        dot.setAttribute('aria-label', 'Страница ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updatePosition() {
+      // Each page shows `perView` slides; offset = page * perView slides * slideWidth%
+      const slideWidthPct = 100 / perView;
+      const maxSlideOffset = slides.length - perView;
+      const slideOffset = Math.min(currentIndex * perView, maxSlideOffset);
+      track.style.transform = 'translateX(-' + Math.max(0, slideOffset * slideWidthPct) + '%)';
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function goTo(index) {
+      const pages = getTotalPages();
+      currentIndex = ((index % pages) + pages) % pages;
+      updatePosition();
+      resetAutoplay();
+    }
+
+    function next() { goTo(currentIndex + 1); }
+    function prev() { goTo(currentIndex - 1); }
+
+    function init() {
+      perView = getPerView();
+      slides.forEach(s => { s.style.flex = '0 0 ' + (100 / perView) + '%'; });
+      if (currentIndex >= getTotalPages()) currentIndex = 0;
+      buildDots();
+      updatePosition();
+    }
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(init, 150);
+    });
+
+    // Touch/swipe
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
+    track.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+    }, {passive: true});
+
+    init();
+  })();
+</script>
+</body>
+</html>
