@@ -278,8 +278,19 @@
     .price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
     .price-desc { font-size: var(--text-small); line-height: 1.7; color: var(--text-muted); flex: 1; }
     .price-card.featured .price-desc { color: rgba(255,255,255,0.7); }
-    .price-savings { display: inline-block; margin-top: 12px; font-size: var(--text-xs); letter-spacing: 1px; color: var(--sage); background: rgba(138,158,140,0.1); padding: 6px 16px; border-radius: 12px; font-weight: 500; text-align: center; line-height: 1.6; }
-    .price-card.featured .price-savings { color: var(--sage-light); background: rgba(138,158,140,0.2); }
+    .price-options { margin-bottom: var(--space-sm); }
+    .price-option {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0;
+    }
+    .price-option + .price-option { border-top: 1px solid var(--border); }
+    .price-option-duration { font-size: var(--text-small); color: var(--text-muted); }
+    .price-option-amount {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 2vw, 1.5rem);
+      font-weight: 400; color: var(--text);
+    }
+    .price-savings { display: inline-block; margin-top: 12px; font-size: var(--text-xs); letter-spacing: 1px; color: var(--text-muted); background: var(--warm); padding: 6px 16px; border-radius: 12px; font-weight: 500; text-align: center; line-height: 1.6; }
+    .price-card.featured .price-savings { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.1); }
 
     /* ============ FIRST SESSION ============ */
     .first-session { background: var(--warm); }
@@ -567,6 +578,11 @@
       <div class="topic-desc">Утрата, развод, потеря работы, тяжёлая болезнь. Кризис середины жизни или кризис 30-летних. Исследуем, кем вы были до и кем становитесь после.</div>
     </div>
     <div class="topic-card">
+      <div class="topic-emoji">💬</div>
+      <div class="topic-name">Отношения и границы</div>
+      <div class="topic-desc">Сложности в общении, созависимость, неумение говорить «нет». Учимся выстраивать здоровые границы, не теряя близости с важными людьми.</div>
+    </div>
+    <div class="topic-card">
       <div class="topic-emoji">✨</div>
       <div class="topic-name">Ценности и идентичность</div>
       <div class="topic-desc">Когда привыкли жить по чужим правилам и не знаете, чего хотите сами. Работа с ценностями, поиск себя, восстановление контакта с собой.</div>
@@ -618,11 +634,18 @@
   <div class="pricing-grid reveal">
     <div class="price-card">
       <div class="price-label">Консультация</div>
-      <div class="price-amount"><span class="price-currency">₽</span>3 800</div>
-      <div class="price-duration">60 минут</div>
+      <div class="price-options">
+        <div class="price-option">
+          <span class="price-option-duration">60 минут</span>
+          <span class="price-option-amount">3 800 ₽</span>
+        </div>
+        <div class="price-option">
+          <span class="price-option-duration">90 минут</span>
+          <span class="price-option-amount">5 500 ₽</span>
+        </div>
+      </div>
       <div class="price-divider"></div>
-      <div class="price-desc">Одна встреча — для разовой консультации или знакомства с форматом</div>
-      <span class="price-savings">90 минут — 5 500 ₽<br>для глубокой работы</span>
+      <div class="price-desc">Одна встреча — для разовой консультации или знакомства с форматом. Первая встреча рекомендуется 90 минут</div>
     </div>
     <div class="price-card featured">
       <div class="price-label">Пакет 5 сессий</div>
