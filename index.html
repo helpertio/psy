@@ -246,18 +246,19 @@
       font-size: var(--text-body); line-height: 1.7; color: var(--text-muted);
       margin-bottom: var(--space-sm);
     }
+    .about-right { display: flex; flex-direction: column; gap: var(--space-md); }
     .credentials-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
     .credential {
       background: var(--cream); border: 1px solid var(--border); border-radius: 12px;
-      padding: clamp(0.875rem, 1.5vw, 1rem); display: flex; gap: 12px; align-items: flex-start;
+      padding: clamp(1.25rem, 2vw, 1.5rem); display: flex; gap: 16px; align-items: center;
     }
     .credential-num {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2vw, 1.75rem);
-      font-weight: 300; color: var(--rose); line-height: 1; flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 400; color: var(--rose); line-height: 1; flex-shrink: 0;
     }
-    .credential-text { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+    .credential-text { font-size: var(--text-small); color: var(--text-muted); line-height: 1.5; }
     .values-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-md); }
     .values-list li { display: flex; gap: 16px; align-items: flex-start; font-size: var(--text-small); line-height: 1.7; color: var(--text-muted); }
     .value-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); flex-shrink: 0; margin-top: 8px; }
@@ -606,29 +607,31 @@
       <p>Для меня психология — не просто профессия, а любимое дело и образ жизни. Я верю, что у каждого есть внутренние ресурсы для изменений — иногда нужен просто проводник, который поможет к ним добраться.</p>
       <p>До психологии я успела побыть химиком, преподавателем, руководителем отдела кадров — и каждая из этих ролей научила меня слышать и понимать людей. Сейчас за плечами более четырёх лет консультирования, работа на горячей линии психологической помощи и сотрудничество с благотворительными фондами.</p>
       <p>Прохожу регулярные супервизии — это мой профессиональный стандарт и залог вашей безопасности.</p>
+    </div>
+    <div class="about-right">
+      <div class="credentials-grid">
+        <div class="credential">
+          <div class="credential-num">1300+</div>
+          <div class="credential-text">часов профессиональной переподготовки по практической психологии</div>
+        </div>
+        <div class="credential">
+          <div class="credential-num">750</div>
+          <div class="credential-text">часов обучения когнитивно-поведенческой терапии</div>
+        </div>
+        <div class="credential">
+          <div class="credential-num">500</div>
+          <div class="credential-text">часов специализации по арт-терапии</div>
+        </div>
+        <div class="credential">
+          <div class="credential-num">4+</div>
+          <div class="credential-text">года частной практики с клиентами</div>
+        </div>
+      </div>
       <ul class="values-list">
         <li><div class="value-dot"></div><div><span class="value-strong">Диплом практического психолога</span> — Балтийский институт психологии (2013)</div></li>
         <li><div class="value-dot"></div><div><span class="value-strong">Курс АМТТ</span> у Роберта Миллера, трансовые техники школы «Ремонт подсознания»</div></li>
         <li><div class="value-dot"></div><div><span class="value-strong">Горячая линия и благотворительность</span> — опыт работы с кризисными ситуациями</div></li>
       </ul>
-    </div>
-    <div class="credentials-grid">
-      <div class="credential">
-        <div class="credential-num">1300+</div>
-        <div class="credential-text">часов профессиональной переподготовки по практической психологии</div>
-      </div>
-      <div class="credential">
-        <div class="credential-num">750</div>
-        <div class="credential-text">часов обучения когнитивно-поведенческой терапии</div>
-      </div>
-      <div class="credential">
-        <div class="credential-num">500</div>
-        <div class="credential-text">часов специализации по арт-терапии</div>
-      </div>
-      <div class="credential">
-        <div class="credential-num">4+</div>
-        <div class="credential-text">года частной практики с клиентами</div>
-      </div>
     </div>
   </div>
 </section>
