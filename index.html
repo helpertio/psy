@@ -299,6 +299,47 @@
     }
     .price-savings { display: inline-block; margin-top: auto; padding-top: 12px; font-size: var(--text-xs); letter-spacing: 0.5px; color: var(--rose); font-weight: 500; text-align: center; line-height: 1.6; }
 
+    /* ============ DIPLOMAS ============ */
+    .diploma-section-label { font-size: 0.8rem; color: var(--text-muted); margin-top: var(--space-md); margin-bottom: var(--space-sm); font-weight: 500; letter-spacing: 0.03em; }
+    /* Variant A: Accordion */
+    .diploma-toggle {
+      display: flex; align-items: center; gap: 0.5rem; margin-top: var(--space-sm);
+      padding: 12px 16px; background: var(--cream); border: 1px solid var(--border);
+      border-radius: 10px; cursor: pointer; transition: background 0.2s;
+      font-family: 'Inter', sans-serif; font-size: var(--text-small); color: var(--text-muted);
+    }
+    .diploma-toggle:hover { background: var(--warm); }
+    .diploma-toggle .arrow { transition: transform 0.3s; font-size: 0.7rem; }
+    .diploma-toggle.open .arrow { transform: rotate(90deg); }
+    .diploma-panel {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin 0.3s ease;
+      margin-top: 0;
+    }
+    .diploma-panel.open { max-height: 500px; margin-top: 12px; }
+    .diploma-panel img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;
+      border: 1px solid var(--border); cursor: pointer; transition: transform 0.2s;
+    }
+    .diploma-panel img:hover { transform: scale(1.03); }
+    /* Variant B: Cards with labels */
+    .diploma-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: var(--space-sm); }
+    .diploma-card {
+      background: var(--cream); border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .diploma-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    .diploma-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .diploma-card-label { padding: 8px 10px; font-size: 0.7rem; color: var(--text-muted); line-height: 1.3; }
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center;
+      cursor: zoom-out; padding: 2rem;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-overlay img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+
     /* ============ FIRST SESSION ============ */
     .first-session { background: var(--warm); }
     .session-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: var(--space-lg); }
@@ -626,9 +667,40 @@
           <div class="credential-text">года частной практики с клиентами</div>
         </div>
       </div>
+      <!-- Variant A: Accordion -->
+      <div class="diploma-section-label">Вариант А</div>
+      <div class="diploma-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        <span class="arrow">&#9654;</span> Дипломы и сертификаты (3)
+      </div>
+      <div class="diploma-panel">
+        <img src="diploma1.jpg" alt="Практическая психология" onclick="openLightbox('diploma1.jpg')">
+        <img src="diploma2.jpg" alt="Арт-терапия" onclick="openLightbox('diploma2.jpg')">
+        <img src="diploma3.jpg" alt="Трансовые техники" onclick="openLightbox('diploma3.jpg')">
+      </div>
+      <!-- Variant B: Cards with labels -->
+      <div class="diploma-section-label">Вариант Б</div>
+      <div class="diploma-cards">
+        <div class="diploma-card" onclick="openLightbox('diploma1.jpg')">
+          <img src="diploma1.jpg" alt="Диплом">
+          <div class="diploma-card-label">Практическая психология, 1300 ч.</div>
+        </div>
+        <div class="diploma-card" onclick="openLightbox('diploma2.jpg')">
+          <img src="diploma2.jpg" alt="Диплом">
+          <div class="diploma-card-label">Арт-терапия, 500 ч.</div>
+        </div>
+        <div class="diploma-card" onclick="openLightbox('diploma3.jpg')">
+          <img src="diploma3.jpg" alt="Диплом">
+          <div class="diploma-card-label">Транс-ориентированная психотерапия</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="Диплом">
+</div>
 
 <!-- PRICING -->
 <section id="pricing">
@@ -961,6 +1033,16 @@
     }, { threshold: 0 });
     obs.observe(hero);
   })();
+
+  // Lightbox
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lb.classList.add('active');
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+  });
 </script>
 </body>
 </html>
