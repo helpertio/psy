@@ -302,7 +302,7 @@
     /* ============ FIRST SESSION ============ */
     .first-session { background: var(--warm); }
     .session-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: var(--space-lg); }
-    .step { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .step { display: flex; flex-direction: column; gap: var(--space-sm); background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: clamp(1.25rem, 2vw, 1.5rem); }
     .step-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 4vw, 4rem); font-weight: 300; line-height: 1; color: var(--rose-light); }
     .step-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 1.5vw, 1.375rem); font-weight: 500; }
     .step-desc { font-size: var(--text-small); color: var(--text-muted); line-height: 1.8; }
@@ -675,12 +675,12 @@
 <!-- FIRST SESSION -->
 <section class="first-session">
   <div class="section-label">Первый шаг</div>
-  <h2 class="section-title reveal">Как проходит<br><em>первая сессия</em></h2>
+  <h2 class="section-title reveal">Как начинается<br><em>наша работа</em></h2>
   <div class="session-steps reveal">
     <div class="step">
       <div class="step-num">01</div>
       <div class="step-title">Напишите мне</div>
-      <div class="step-desc">Свяжитесь со мной в Telegram — расскажите коротко, что вас привело. Я отвечу и мы договоримся о времени первой встречи</div>
+      <div class="step-desc"><a href="https://t.me/TihaVikova_psy" target="_blank" rel="noopener" style="color:var(--rose); text-decoration:underline; text-underline-offset:3px;">Свяжитесь со мной в Telegram</a> — расскажите коротко, что вас привело. Я отвечу и мы договоримся о времени первой встречи</div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
