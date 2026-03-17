@@ -266,38 +266,37 @@
     /* ============ PRICING ============ */
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.75rem, 1.5vw, 1.25rem); margin-top: var(--space-lg); }
     .price-card {
-      padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.25rem, 2vw, 1.75rem);
-      border: 1px solid var(--border);
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      border: 1px solid var(--border); background: var(--cream);
       border-radius: 16px; transition: all 0.25s;
-      display: flex; flex-direction: column;
+      display: flex; flex-direction: column; position: relative;
     }
-    .price-card.featured { background: var(--text); color: #fff; border-color: var(--text); }
-    .price-card:not(.featured):hover { border-color: var(--rose-light); box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-4px); }
-    .price-label { font-size: var(--text-xs); letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-sm); }
-    .price-card.featured .price-label { color: rgba(255,255,255,0.5); }
-    .price-amount { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.75rem); font-weight: 300; line-height: 1; margin-bottom: 4px; }
-    .price-currency { font-size: 0.5em; }
-    .price-per-session { font-size: var(--text-small); color: var(--text-muted); font-weight: 400; margin-bottom: 4px; }
-    .price-card.featured .price-per-session { color: rgba(255,255,255,0.6); }
-    .price-duration { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: var(--space-md); }
-    .price-card.featured .price-duration { color: rgba(255,255,255,0.5); }
-    .price-divider { height: 1px; background: var(--border); margin-bottom: var(--space-sm); }
-    .price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
+    .price-card:hover { border-color: var(--rose-light); box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-4px); }
+    .price-card.featured { border: 2px solid var(--rose); }
+    .price-card.featured::before {
+      content: 'Популярный'; position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+      background: var(--rose); color: #fff; font-size: 0.6875rem; font-weight: 500;
+      padding: 2px 14px; border-radius: 10px; letter-spacing: 0.5px;
+    }
+    .price-label { font-size: var(--text-xs); letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-xs); }
+    .price-amount { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.25rem); font-weight: 400; line-height: 1; margin-bottom: 4px; color: var(--text); }
+    .price-currency { font-size: 0.45em; vertical-align: super; }
+    .price-per-session { font-size: var(--text-small); color: var(--text-muted); font-weight: 400; margin-bottom: 2px; }
+    .price-duration { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: var(--space-sm); }
+    .price-divider { height: 1px; background: var(--border); margin-bottom: var(--space-xs); }
     .price-desc { font-size: var(--text-small); line-height: 1.7; color: var(--text-muted); flex: 1; }
-    .price-card.featured .price-desc { color: rgba(255,255,255,0.7); }
-    .price-options { margin-bottom: var(--space-sm); }
+    .price-options { margin-bottom: var(--space-xs); }
     .price-option {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 8px 0;
+      padding: 6px 0;
     }
     .price-option + .price-option { border-top: 1px solid var(--border); }
     .price-option-duration { font-size: var(--text-small); color: var(--text-muted); }
     .price-option-amount {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 2vw, 1.5rem);
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.5vw, 1.875rem);
       font-weight: 400; color: var(--text);
     }
-    .price-savings { display: inline-block; margin-top: 12px; font-size: var(--text-xs); letter-spacing: 1px; color: var(--text-muted); background: var(--warm); padding: 6px 16px; border-radius: 12px; font-weight: 500; text-align: center; line-height: 1.6; }
-    .price-card.featured .price-savings { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.1); }
+    .price-savings { display: inline-block; margin-top: auto; padding-top: 12px; font-size: var(--text-xs); letter-spacing: 0.5px; color: var(--rose); font-weight: 500; text-align: center; line-height: 1.6; }
 
     /* ============ FIRST SESSION ============ */
     .first-session { background: var(--warm); }
@@ -657,21 +656,21 @@
     </div>
     <div class="price-card featured">
       <div class="price-label">Пакет 5 сессий</div>
-      <div class="price-amount"><span class="price-currency">₽</span>3 400</div>
+      <div class="price-amount">3 400 <span class="price-currency">₽</span></div>
       <div class="price-per-session">за сессию</div>
       <div class="price-duration">5 × 60 минут</div>
       <div class="price-divider"></div>
       <div class="price-desc">Оптимальный вариант для краткосрочной работы с конкретным запросом</div>
-      <span class="price-savings">17 000 ₽ за пакет<br>скидка 11%</span>
+      <div class="price-savings">17 000 ₽ за пакет · скидка 11%</div>
     </div>
     <div class="price-card">
       <div class="price-label">Пакет 10 сессий</div>
-      <div class="price-amount"><span class="price-currency">₽</span>3 000</div>
+      <div class="price-amount">3 000 <span class="price-currency">₽</span></div>
       <div class="price-per-session">за сессию</div>
       <div class="price-duration">10 × 60 минут</div>
       <div class="price-divider"></div>
       <div class="price-desc">Идеально для глубокой работы и устойчивых изменений</div>
-      <span class="price-savings">30 000 ₽ за пакет<br>скидка 21%</span>
+      <div class="price-savings">30 000 ₽ за пакет · скидка 21%</div>
     </div>
   </div>
 </section>
