@@ -6,6 +6,12 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Виктория Тихова — Психолог</title>
   <meta name="description" content="Практикующий психолог Виктория Тихова. КПТ, арт-терапия, трансовые техники, метафорические карты. Бережный подход, 4+ года практики. Онлайн-консультации.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Виктория Тихова — Психолог">
+  <meta property="og:description" content="Практикующий психолог. КПТ, арт-терапия, трансовые техники. Бережный подход, 4+ года практики.">
+  <meta property="og:image" content="https://tikhova-psiholog.ru/photo.jpg">
+  <meta property="og:url" content="https://tikhova-psiholog.ru">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -19,7 +25,7 @@
       --rose-hover: #b06858;
       --rose-light: #e8cfc4;
       --text: #2d2a27;
-      --text-muted: #7a756e;
+      --text-muted: #635e57;
       --border: #ddd5c8;
 
       /* Fluid spacing */
@@ -194,7 +200,7 @@
       gap: var(--space-xl); align-items: start; margin-top: var(--space-lg);
     }
     .approach-text p {
-      font-size: var(--text-body); line-height: 1.9; color: var(--text-muted);
+      font-size: var(--text-body); line-height: 1.7; color: var(--text-muted);
       margin-bottom: var(--space-sm);
     }
     .methods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -234,7 +240,7 @@
     .about-content { max-width: 52rem; }
     .about-content .section-desc { margin-bottom: var(--space-md); }
     .credentials-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: var(--space-md);
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: var(--space-md);
     }
     .credential {
       background: var(--cream); border: 1px solid var(--border); border-radius: 12px;
@@ -251,7 +257,7 @@
     .value-strong { color: var(--text); font-weight: 400; }
 
     /* ============ PRICING ============ */
-    .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.25rem); margin-top: var(--space-lg); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.75rem, 1.5vw, 1.25rem); margin-top: var(--space-lg); }
     .price-card {
       padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.25rem, 2vw, 1.75rem);
       border: 1px solid var(--border);
@@ -302,7 +308,7 @@
       font-size: 2rem; color: var(--rose);
       font-family: 'Cormorant Garamond', serif; line-height: 1;
     }
-    .review-text { font-size: var(--text-small); line-height: 1.8; color: var(--text-muted); flex: 1; }
+    .review-text { font-size: var(--text-small); line-height: 1.65; color: var(--text-muted); flex: 1; }
     .review-author {
       font-size: var(--text-xs); color: var(--text); letter-spacing: 1px;
       border-top: 1px solid var(--border); padding-top: var(--space-sm); font-weight: 400;
@@ -353,6 +359,30 @@
     }
     .cta-contacts a:hover { color: rgba(255,255,255,0.9); }
 
+    /* ============ MOBILE STICKY CTA ============ */
+    .sticky-cta {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
+      padding: 12px 16px;
+      background: rgba(247,243,238,0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta a {
+      display: block; width: 100%; text-align: center;
+      background: var(--rose); color: #fff;
+      font-family: 'Jost', sans-serif; font-size: var(--text-small); font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+      padding: 16px; border-radius: 100px;
+    }
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; }
+      footer { padding-bottom: 80px; }
+    }
+
     /* ============ FOOTER ============ */
     footer {
       padding: var(--space-md) clamp(1.25rem, 5vw, 5rem);
@@ -369,7 +399,7 @@
 
     /* ============ RESPONSIVE — TABLET ============ */
     @media (max-width: 1024px) {
-      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr 1fr 1fr; }
     }
 
     /* ============ RESPONSIVE — MOBILE ============ */
@@ -401,10 +431,10 @@
       }
       .hero-text {
         padding: var(--space-lg) var(--space-md) var(--space-md);
-        order: 1;
+        order: 2;
       }
       .hero-visual {
-        order: 2;
+        order: 1;
         aspect-ratio: 4 / 3;
         margin: 0;
         border-radius: 0;
@@ -415,7 +445,7 @@
       .approach-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
       .methods-grid { grid-template-columns: 1fr 1fr; }
       .topics-grid { grid-template-columns: 1fr; }
-      .credentials-grid { grid-template-columns: 1fr 1fr; }
+      .credentials-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
       .session-steps { grid-template-columns: 1fr; }
       .carousel-slide { flex: 0 0 100% !important; }
@@ -424,7 +454,6 @@
 
     @media (max-width: 480px) {
       .methods-grid { grid-template-columns: 1fr; }
-      .credentials-grid { grid-template-columns: 1fr; }
       .hero-specialties { gap: 6px; }
       .specialty-tag { font-size: 0.625rem; padding: 5px 12px; }
       .cta-buttons { flex-direction: column; align-items: center; }
@@ -490,13 +519,13 @@
     <div class="methods-grid">
       <div class="method-card">
         <div class="method-icon">📝</div>
-        <div class="method-name">КПТ</div>
-        <div class="method-desc">Выявляем глубинные убеждения и паттерны, сформированные с детства. Учимся осознавать, что помогает, а что разрушает — и менять разрушительное на созидательное.</div>
+        <div class="method-name">Когнитивно-поведенческая терапия</div>
+        <div class="method-desc">Исследуем взаимосвязь мыслей, эмоций и поведения. Находим автоматические реакции, которые мешают жить, — и учимся выстраивать новые, более здоровые.</div>
       </div>
       <div class="method-card">
         <div class="method-icon">🎨</div>
-        <div class="method-name">Арт-терапия</div>
-        <div class="method-desc">Там, где слов недостаточно — подключаем творчество. Метод затрагивает глубинные слои психики и делает видимым то, что не давалось словами.</div>
+        <div class="method-name">КПТ-арт</div>
+        <div class="method-desc">Новое направление на стыке КПТ и арт-терапии — третья волна когнитивно-поведенческой терапии. Где слов недостаточно, подключаем творчество: работаем одновременно с мыслями, чувствами и образами.</div>
       </div>
       <div class="method-card">
         <div class="method-icon">🌊</div>
@@ -505,8 +534,8 @@
       </div>
       <div class="method-card">
         <div class="method-icon">🃏</div>
-        <div class="method-name">МАК</div>
-        <div class="method-desc">Метафорические карты становятся посредником между вами и бессознательным. Через ассоциации и образы помогают найти ответы на волнующие вопросы.</div>
+        <div class="method-name">Метафорические карты</div>
+        <div class="method-desc">Карты становятся посредником между вами и бессознательным. Через ассоциации и образы помогают найти ответы на волнующие вопросы.</div>
       </div>
     </div>
   </div>
@@ -536,11 +565,6 @@
       <div class="topic-emoji">🌱</div>
       <div class="topic-name">Кризисные ситуации</div>
       <div class="topic-desc">Утрата, развод, потеря работы, тяжёлая болезнь. Кризис середины жизни или кризис 30-летних. Исследуем, кем вы были до и кем становитесь после.</div>
-    </div>
-    <div class="topic-card">
-      <div class="topic-emoji">🩺</div>
-      <div class="topic-name">Онкология и тяжёлые диагнозы</div>
-      <div class="topic-desc">Поддержка для тех, кто столкнулся с серьёзным диагнозом или для их близких. Помогаю прожить каждый этап максимально экологично и найти опору.</div>
     </div>
     <div class="topic-card">
       <div class="topic-emoji">✨</div>
@@ -593,18 +617,12 @@
   <p class="section-desc reveal">Терапия — это инвестиция в себя, в своё благополучие и качество жизни</p>
   <div class="pricing-grid reveal">
     <div class="price-card">
-      <div class="price-label">Разовая сессия</div>
+      <div class="price-label">Консультация</div>
       <div class="price-amount"><span class="price-currency">₽</span>3 800</div>
       <div class="price-duration">60 минут</div>
       <div class="price-divider"></div>
-      <div class="price-desc">Одна встреча. Подходит для разовой консультации или знакомства с форматом</div>
-    </div>
-    <div class="price-card">
-      <div class="price-label">Полуторачасовая</div>
-      <div class="price-amount"><span class="price-currency">₽</span>5 500</div>
-      <div class="price-duration">90 минут</div>
-      <div class="price-divider"></div>
-      <div class="price-desc">Больше времени для глубокой работы. Рекомендуется для первой встречи</div>
+      <div class="price-desc">Одна встреча — для разовой консультации или знакомства с форматом</div>
+      <span class="price-savings">90 минут — 5 500 ₽<br>для глубокой работы</span>
     </div>
     <div class="price-card featured">
       <div class="price-label">Пакет 5 сессий</div>
@@ -781,6 +799,10 @@
   </div>
 </section>
 
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://t.me/TihaVikova_psy" target="_blank">Записаться</a>
+</div>
+
 <footer>
   <span>© Виктория Тихова, 2026</span>
   <div style="display:flex; gap:24px;">
@@ -869,7 +891,6 @@
       const pages = getTotalPages();
       currentIndex = ((index % pages) + pages) % pages;
       updatePosition();
-      resetAutoplay();
     }
 
     function next() { goTo(currentIndex + 1); }
@@ -901,6 +922,17 @@
     }, {passive: true});
 
     init();
+  })();
+
+  // Sticky CTA on mobile — show after scrolling past hero
+  (function() {
+    const sticky = document.getElementById('stickyCta');
+    if (!sticky) return;
+    const hero = document.querySelector('.hero');
+    const obs = new IntersectionObserver(([entry]) => {
+      sticky.classList.toggle('visible', !entry.isIntersecting);
+    }, { threshold: 0 });
+    obs.observe(hero);
   })();
 </script>
 </body>
