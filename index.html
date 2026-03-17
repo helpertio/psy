@@ -203,11 +203,12 @@
       font-size: var(--text-body); line-height: 1.7; color: var(--text-muted);
       margin-bottom: var(--space-sm);
     }
-    .methods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .methods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; grid-auto-rows: 1fr; }
     .method-card {
       background: var(--cream); border: 1px solid var(--border);
       border-radius: 12px; padding: clamp(1.25rem, 2vw, 1.5rem);
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
     }
     .method-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
     .method-icon { font-size: 24px; margin-bottom: 12px; }
