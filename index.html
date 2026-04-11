@@ -151,6 +151,21 @@
       transition: all 0.3s; align-self: flex-start;
     }
     .btn-primary:hover { background: var(--rose-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(194,122,106,0.35); }
+    .btn-primary svg, .btn-max svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-primary { gap: 8px; }
+    .btn-max {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: #2B59C3; color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: var(--text-xs); font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none;
+      padding: 18px 44px; min-height: 48px;
+      border-radius: 100px; border: none; cursor: pointer;
+      transition: all 0.3s; align-self: flex-start;
+    }
+    .btn-max:hover { background: #1f47a8; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(43,89,195,0.35); }
+    .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; }
 
     /* Hero image - fixed aspect ratio so crop never changes on resize */
     .hero-visual {
@@ -397,13 +412,18 @@
       transition: transform 0.3s ease;
     }
     .sticky-cta.visible { transform: translateY(0); }
-    .sticky-cta a {
-      display: block; width: 100%; text-align: center;
-      background: var(--rose); color: #fff;
-      font-family: 'Jost', sans-serif; font-size: var(--text-small); font-weight: 500;
-      letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
-      padding: 16px; border-radius: 100px;
+    .sticky-cta-bar {
+      display: flex; border-radius: 100px; overflow: hidden;
     }
+    .sticky-cta-bar a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      color: #fff; font-family: 'Jost', sans-serif; font-size: var(--text-small); font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+      padding: 16px 8px;
+    }
+    .sticky-cta-bar a svg { width: 16px; height: 16px; }
+    .sticky-cta-bar a.sticky-tg { background: var(--rose); }
+    .sticky-cta-bar a.sticky-max { background: #2B59C3; }
     @media (max-width: 768px) {
       .sticky-cta { display: block; }
       footer { padding-bottom: 80px; }
@@ -483,7 +503,7 @@
       .hero-specialties { gap: 6px; }
       .specialty-tag { font-size: 0.625rem; padding: 5px 12px; }
       .cta-buttons { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-outline { width: 100%; max-width: 320px; text-align: center; }
+      .btn-primary, .btn-max, .btn-outline { width: 100%; max-width: 320px; text-align: center; }
     }
 
     /* Short viewports (landscape phones) */
@@ -505,7 +525,7 @@
     <a href="#about" class="nav-link">Обо мне</a>
     <a href="#pricing" class="nav-link">Стоимость</a>
     <a href="#reviews" class="nav-link">Отзывы</a>
-    <a href="https://t.me/TihaVikova_psy" target="_blank" class="nav-cta">Записаться</a>
+    <a href="#contact" class="nav-cta">Записаться</a>
   </div>
 </nav>
 
@@ -515,7 +535,11 @@
     <div class="hero-tag">Психолог · Терапевт</div>
     <h1 class="hero-name">Виктория<br><em>Тихова</em></h1>
     <p class="hero-subtitle">Практический психолог, когнитивно-поведенческий терапевт, арт-терапевт, специалист по трансовой терапии.</p>
-    <a href="https://t.me/TihaVikova_psy" target="_blank" class="btn-primary">Записаться на консультацию</a>
+    <div class="cta-buttons">
+      <a href="https://t.me/TihaVikova_psy" target="_blank" class="btn-primary"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> Telegram</a>
+      <a href="https://max.ru/u/f9LHodD0cOJ-E56W5iQSJWjup7Fxs6kj_xxSVrCwLpy0tJt2LYrCRkiMlFE" target="_blank" class="btn-max"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4C1.9 4 1 4.9 1 6v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H3zm0 2h18v.01L12 13 3 6.01V6zm0 2.99L12 15l9-6.01V18H3V8.99z"/></svg> Max</a>
+    </div>
+    <div class="btn-hint">Telegram заблокирован? Пишите в Max</div>
   </div>
   <div class="hero-visual">
     <img src="photo.jpg" alt="Виктория Тихова — психолог" width="800" height="1067" fetchpriority="high">
@@ -702,7 +726,7 @@
     <div class="step">
       <div class="step-num">01</div>
       <div class="step-title">Напишите мне</div>
-      <div class="step-desc"><a href="https://t.me/TihaVikova_psy" target="_blank" rel="noopener" style="color:var(--rose); text-decoration:underline; text-underline-offset:3px;">Свяжитесь со мной в Telegram</a> и расскажите коротко, что вас привело. Я отвечу и мы договоримся о времени первой встречи</div>
+      <div class="step-desc"><a href="https://t.me/TihaVikova_psy" target="_blank" rel="noopener" style="color:var(--rose); text-decoration:underline; text-underline-offset:3px;">Свяжитесь со мной в Telegram</a> или <a href="https://max.ru/u/f9LHodD0cOJ-E56W5iQSJWjup7Fxs6kj_xxSVrCwLpy0tJt2LYrCRkiMlFE" target="_blank" rel="noopener" style="color:#2B59C3; text-decoration:underline; text-underline-offset:3px;">в Max</a> и расскажите коротко, что вас привело. Я отвечу и мы договоримся о времени первой встречи</div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
@@ -913,24 +937,30 @@
   <h2 class="section-title">Помогу найти опору<br><em>внутри себя</em></h2>
   <p class="section-desc">Каждый человек уникален — путь к изменениям у каждого свой.<br>Давайте знакомиться и вместе создавать пространство для ваших перемен.</p>
   <div class="cta-buttons">
-    <a href="https://t.me/TihaVikova_psy" target="_blank" class="btn-primary">Написать в Telegram</a>
+    <a href="https://t.me/TihaVikova_psy" target="_blank" class="btn-primary"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOJ-E56W5iQSJWjup7Fxs6kj_xxSVrCwLpy0tJt2LYrCRkiMlFE" target="_blank" class="btn-max"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4C1.9 4 1 4.9 1 6v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H3zm0 2h18v.01L12 13 3 6.01V6zm0 2.99L12 15l9-6.01V18H3V8.99z"/></svg> Max</a>
     <a href="tel:+79165973560" class="btn-outline">Позвонить</a>
   </div>
   <div class="cta-contacts">
     <div style="display:flex; gap:32px; justify-content:center; flex-wrap:wrap;">
       <a href="https://t.me/TihaVikova_psy" target="_blank">Telegram: @TihaVikova_psy</a>
+      <a href="https://max.ru/u/f9LHodD0cOJ-E56W5iQSJWjup7Fxs6kj_xxSVrCwLpy0tJt2LYrCRkiMlFE" target="_blank">Max</a>
     </div>
   </div>
 </section>
 
 <div class="sticky-cta" id="stickyCta">
-  <a href="https://t.me/TihaVikova_psy" target="_blank">Записаться</a>
+  <div class="sticky-cta-bar">
+    <a href="https://t.me/TihaVikova_psy" target="_blank" class="sticky-tg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOJ-E56W5iQSJWjup7Fxs6kj_xxSVrCwLpy0tJt2LYrCRkiMlFE" target="_blank" class="sticky-max"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4C1.9 4 1 4.9 1 6v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H3zm0 2h18v.01L12 13 3 6.01V6zm0 2.99L12 15l9-6.01V18H3V8.99z"/></svg> Max</a>
+  </div>
 </div>
 
 <footer>
   <span>© Виктория Тихова, 2026</span>
   <div style="display:flex; gap:24px;">
     <a href="https://t.me/TihaVikova_psy" target="_blank">Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOJ-E56W5iQSJWjup7Fxs6kj_xxSVrCwLpy0tJt2LYrCRkiMlFE" target="_blank">Max</a>
     <a href="tel:+79165973560">+7 916 597 35 60</a>
   </div>
   <span>Психолог · Терапевт</span>
