@@ -164,7 +164,7 @@
       transition: all 0.3s; align-self: flex-start;
     }
     .btn-max:hover { background: #1f47a8; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(43,89,195,0.35); }
-    .cta-buttons { display: inline-flex; gap: 12px; flex-wrap: wrap; }
+    .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; align-self: flex-start; }
     .btn-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; flex-basis: 100%; }
 
     /* Hero image - fixed aspect ratio so crop never changes on resize */
@@ -380,7 +380,7 @@
     .cta-section .section-title { color: #fff; }
     .cta-section .section-title em { color: var(--rose-light); }
     .cta-section .section-desc { color: rgba(255,255,255,0.5); margin: 0 auto var(--space-lg); }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-section .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .btn-outline {
       display: inline-flex; align-items: center; justify-content: center;
       border: 1px solid rgba(255,255,255,0.3); color: #fff;
